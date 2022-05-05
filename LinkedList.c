@@ -15,6 +15,8 @@ int main()
     int ans = 1;
     int count = 0, n = 1;
     int choice;
+    int Position = 0;
+    int i =1;
     head = NULL;
     do
     {
@@ -43,7 +45,35 @@ int main()
             }
             n =1;
             break;
+        case 3:
+            while (n)
+            {
+                new = (struct node *)malloc(sizeof(struct node));
+                printf("\n Enter Your Name :");
+                scanf("%s",new->name);
+                new->next = NULL;
+                printf("Enter Position Where Do You Want To Enter");
+                scanf("%d",&Position);
+                if(count == 0){
+                    printf("Either Your Node Is Empty Or You Haven't Read THe Data.\n");
+                    break;
+                }
+                else{
+                    temprun = head;
+                    while(i<Position){
+                        temprun = temprun->next;
+                        i++;
+                    }
+                    new->next = temprun->next;
+                    temprun->next = new;
+                }
+                printf("\nDo You Want To Conitnue :");
+                scanf("%d",&n);
+            }
+            n =1;
+            break;
         case 2:
+            count = 0;
             temprun = head;
             while (temprun != NULL)
             {
